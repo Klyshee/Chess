@@ -11,7 +11,15 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+reportWebVitals(console.log);
+
+
+function saveToLocalStorage(metric) {
+  const metrics = JSON.parse(localStorage.getItem('webVitals')) || [];
+  metrics.push(metric);
+  localStorage.setItem('webVitals', JSON.stringify(metrics));
+}
+
+
+
