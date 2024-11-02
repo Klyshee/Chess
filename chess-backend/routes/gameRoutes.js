@@ -32,7 +32,7 @@ router.put('/:id', async (req, res) => {
   try {
     const game = await Game.findByIdAndUpdate(req.params.id, { fen, history }, { new: true });
     if (!game) {
-      return res.status(404).json({ message: 'Игра не найдена' }); // Возвращаем статус 404, если игра не найдена
+      return res.status(404).json({ message: 'Игра не найдена' }); 
     }
     res.json(game);
   } catch (error) {
